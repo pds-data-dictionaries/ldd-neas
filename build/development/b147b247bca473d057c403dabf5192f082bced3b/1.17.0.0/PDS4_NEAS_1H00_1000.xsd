@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:neas  Version:1.0.0.0 - Wed Aug 31 19:27:14 UTC 2022 -->
+  <!-- Generated from the PDS4 Information Model Version 1.17.0.0 - System Build 12.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.17.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - neas: - Near_Earth_Asteroid_Scout                               -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/neas/v1"
+    xmlns:neas="http://pds.nasa.gov/pds4/mission/neas/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+This is the Near-Earth Asteroid Scout (NEAS) mission dictionary.
+
+  ## CHANGE LOG ##
+
+  1.0.0.0
+  12/02/2021
+  Changed namespace_id to "neas" from "neascam"
+
+
+  1.0.0.0
+  11/29/2021
+  - Initial writing.
+  
+  
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Neas" type="neas:Neas"> </xs:element>
+
+  <xs:complexType name="Neas">
+    <xs:annotation>
+      <xs:documentation>This is the Near-Earth Asteroid Scout (NEAS)
+        mission specific data dictionary. It describes attributes that
+        are common to NEAS data processing and science data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nssi_filename" type="neas:nssi_filename" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="processing_config" type="neas:processing_config" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="nssi_filename">
+    <xs:annotation>
+      <xs:documentation>The nssi_filename attribute refers to the
+        original NEAScout science image (nssi) filename created onboard
+        the Near-Earth Asteroid Scout (NEAS) spacecraft. These filenames
+        are unique ten (10) digit identification and provide a
+        provenance of the image data.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="processing_config">
+    <xs:annotation>
+      <xs:documentation>The processing_config attribute refers to the
+        post-processing configuration and image sample type. The
+        acceptable values are: I for image data that is full frame and
+        full resolution; S for subframe image at full resolution; D for
+        a downsampled, reduced resolution image; M for a mixed subframed
+        and downsampled image; T for a thumbnail image of reduced
+        resolution.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

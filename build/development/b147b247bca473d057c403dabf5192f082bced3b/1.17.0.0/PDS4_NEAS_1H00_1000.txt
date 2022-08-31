@@ -1,0 +1,97 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        10.0.0
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.23
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Wed Aug 31 19:27:14 UTC 2022
+   Common Schema          [PDS4_PDS_1H00.xsd]
+   Common Schematron      [PDS4_PDS_1H00.sch]
+   IM Version Id:         1.17.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.23
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-neas/ldd-neas/src/PDS4_NEAS_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                1
+   Attributes             2
+   Associations           2
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Near_Earth_Asteroid_Scout
+   LDD Version            1.0.0.0
+   Full Name              Kenneth Lawrence
+   Steward                sbn
+   Namespace Id           neas
+   Comment                This is the Near-Earth Asteroid Scout (NEAS) mission dictionary.
+
+  ## CHANGE LOG ##
+
+  1.0.0.0
+  12/02/2021
+  Changed namespace_id to "neas" from "neascam"
+
+
+  1.0.0.0
+  11/29/2021
+  - Initial writing.
+  
+  
+  
+   Last Modification Time 2021-11-29
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   nssi_filename
+   version                1.17
+   value data type        ASCII_Short_String_Collapsed
+   description            The nssi_filename attribute refers to the original NEAScout science image (nssi) filename created onboard the Near-Earth Asteroid Scout (NEAS) spacecraft. These filenames are unique ten (10) digit identification and provide a provenance of the image data.
+
+   name                   processing_config
+   version                1.17
+   value data type        ASCII_Short_String_Collapsed
+   description            The processing_config attribute refers to the post-processing configuration and image sample type. The acceptable values are: I for image data that is full frame and full resolution; S for subframe image at full resolution; D for a downsampled, reduced resolution image; M for a mixed subframed and downsampled image; T for a thumbnail image of reduced resolution.
+
+Parsed Input - Classes:
+
+   name                   Neas
+   description            This is the Near-Earth Asteroid Scout (NEAS) mission specific data dictionary. It describes attributes that are common to NEAS data processing and science data products.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nssi_filename
+      minimum occurrences   1
+      maximum occurrences   unbounded
+      reference type        attribute_of
+
+      local identifier      processing_config
+      minimum occurrences   1
+      maximum occurrences   unbounded
+      reference type        attribute_of
+
+End of Report
